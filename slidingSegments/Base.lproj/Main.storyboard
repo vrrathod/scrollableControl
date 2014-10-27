@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="slidingSegments" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,78 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SZ3-v3-fn8">
+                                <rect key="frame" x="26" y="250" width="548" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hv8-8h-fBD"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nPk-r6-Kec">
+                                    <size key="itemSize" width="133" height="43"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LeagueCell" id="SOB-6R-z6R" customClass="LeagueCollectionViewCell" customModule="slidingSegments" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="133" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqg-r7-UTg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="43"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="buttonClicked:" destination="SOB-6R-z6R" eventType="touchUpInside" id="k1k-Dm-Tls"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="nqg-r7-UTg" firstAttribute="leading" secondItem="SOB-6R-z6R" secondAttribute="leading" id="JgQ-w6-ndy"/>
+                                            <constraint firstAttribute="trailing" secondItem="nqg-r7-UTg" secondAttribute="trailing" id="aGa-UL-ROi"/>
+                                            <constraint firstAttribute="bottom" secondItem="nqg-r7-UTg" secondAttribute="bottom" id="kIC-Tj-I1d"/>
+                                            <constraint firstItem="nqg-r7-UTg" firstAttribute="top" secondItem="SOB-6R-z6R" secondAttribute="top" id="ugG-6k-cn8"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="btn" destination="nqg-r7-UTg" id="sbO-7D-c5P"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconmonstr-circle-icon-64.png" translatesAutoresizingMaskIntoConstraints="NO" id="hLd-K0-V7L">
+                                <rect key="frame" x="296" y="310" width="8" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="UDr-Nx-MAM"/>
+                                    <constraint firstAttribute="width" constant="8" id="jbC-oo-ytW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SZ3-v3-fn8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="3j7-oO-OK6"/>
+                            <constraint firstItem="SZ3-v3-fn8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="250" id="ONh-pY-av0"/>
+                            <constraint firstAttribute="centerX" secondItem="hLd-K0-V7L" secondAttribute="centerX" id="QQh-7K-qX8"/>
+                            <constraint firstItem="hLd-K0-V7L" firstAttribute="top" secondItem="SZ3-v3-fn8" secondAttribute="bottom" constant="10" id="v6A-Dz-eQu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SZ3-v3-fn8" secondAttribute="trailing" constant="10" id="zAA-AZ-I87"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="SZ3-v3-fn8" id="1vo-CA-jr0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="456" y="399"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconmonstr-circle-icon-64.png" width="64" height="64"/>
+    </resources>
 </document>
