@@ -18,7 +18,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     // MARK: variables
     let screenSize: CGRect = UIScreen.mainScreen().bounds
 
-    var items:[String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    var items:[String] = ["item a","item b","item c","item d","item e","item f","item g","item h","item i","item j","item k","item l","item m","item n","item o","item p","item q","item r","item s","item t","item u","item v","item w","item x","item y","item z"]
     
     var nextVisibleItem:NSIndexPath = NSIndexPath();
     var lastHiddenItem:NSIndexPath = NSIndexPath();
