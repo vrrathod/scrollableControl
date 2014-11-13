@@ -171,6 +171,7 @@
 				TargetAttributes = {
 					37A124DC19FDB26000EEC045 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = SPFLRXGH4A;
 					};
 					37A124F119FDB26000EEC045 = {
 						CreatedOnToolsVersion = 6.1;
