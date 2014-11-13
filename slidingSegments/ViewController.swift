@@ -12,7 +12,7 @@ protocol CollectionViewScroller {
     func clickedOnButton( path:NSIndexPath ) -> Void;
 }
 
-class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate, CollectionViewScroller{
+class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CollectionViewScroller{
     
     @IBOutlet weak var collectionView: UICollectionView!
     // MARK: variables
@@ -29,7 +29,6 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         // Do any additional setup after loading the view, typically from a nib.
         self.collectionView.dataSource = self;
         self.collectionView.delegate = self;
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,17 +59,10 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         self.collectionView.scrollToItemAtIndexPath(path, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        println("hiding\(self.lastHiddenItem) showing: \(self.nextVisibleItem)")
+    // content insets
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0.0, left: 100.0, bottom: 0.0, right: 100.0);
+//        return UIEdgeInsetsZero;
     }
-    
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        self.nextVisibleItem = indexPath;
-    }
-    
-    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        self.lastHiddenItem = indexPath;
-    }
-
 }
 
